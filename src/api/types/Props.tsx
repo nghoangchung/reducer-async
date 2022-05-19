@@ -10,6 +10,7 @@ export interface PropsUser {
   user_role: string;
   user_token: string;
   //local
+  avatars: PropsAvatar[]
   /*
     For In the Future:
       - accountTypeId: server not at save, only save local.
@@ -29,4 +30,11 @@ export interface PropsUser {
       - if when develop change environment then force.
   */
   environmentName: string;
+}
+export interface PropsAvatar {
+  name: string;
+  email: string;
+  phone: string;
+  date?: string;
+  pathImage?: string;
 }

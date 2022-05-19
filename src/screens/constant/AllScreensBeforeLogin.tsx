@@ -1,13 +1,15 @@
 import KeyScreens from './KeyScreens';
 import ScreenLogin from '../ScreenLogin';
+import ScreenList from '../ScreenList';
+import ScreenUpdate from '../ScreenUpdate';
 const AllScreensBeforeLogin = [
   {
     name: KeyScreens.list,
-    component: ScreenLogin,
+    component: ScreenList,
   },
   {
     name: KeyScreens.update,
-    component: ScreenLogin,
+    component: ScreenUpdate,
   },
   {
     name: KeyScreens.login,

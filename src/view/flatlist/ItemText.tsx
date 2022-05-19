@@ -1,8 +1,9 @@
 import {ExtendTheme, useTheme} from '@react-navigation/native';
 import React from 'react';
 import {useMemo} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {StyleSheet} from 'react-native';
+import { PropsAvatar } from '~/api/types/Props';
 import {Border, Touch} from '~/styles';
 export interface PropsItemIcon {
   key: string;
@@ -10,12 +11,13 @@ export interface PropsItemIcon {
 }
 interface PropsRenderItemIconText {
   index: number;
-  item: PropsItemIcon;
+  item: PropsAvatar;
   actionSelect?: (item: any) => Promise<void>;
 }
 const ItemText: React.FC<PropsRenderItemIconText> = ({item, actionSelect}) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyles(theme), [theme]);
+  const base64Image = item.pathImage;
   return (
     <TouchableOpacity
       style={styles.item}
@@ -23,8 +25,9 @@ const ItemText: React.FC<PropsRenderItemIconText> = ({item, actionSelect}) => {
       activeOpacity={Touch.OPACITY}
     >
       <View style={styles.rightItem}>
+        {base64Image && base64Image !== ''? <Image source={{uri: `data:image/jpeg;base64,${base64Image}`}} /> : undefined}
         <Text numberOfLines={3} style={styles.text}>
-          {item.title}
+          {`${JSON.stringify(item.name)}`}
         </Text>
       </View>
     </TouchableOpacity>
@@ -40,7 +43,6 @@ const createStyles = (_theme: ExtendTheme) =>
       minHeight: HEIGHT,
     },
     rightItem: {
-      flexDirection: 'row',
       flex: 1,
       borderBottomColor: _theme.colors.line,
       borderBottomWidth: Border.WIDTH,

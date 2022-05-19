@@ -32,12 +32,13 @@ export function getUserMappings(user: PropsUser): PropsUser {
   return temp;
 }
 //Get user Default
-function getUserDefault(): PropsUser {
+export function getUserDefault(): PropsUser {
   return {
     user_id: '',
     user_name: '',
     user_role: '',
     user_token: '',
+    avatars: [],
     /*
       For In the Future:
       - accountTypeId: server not at save, only save local.

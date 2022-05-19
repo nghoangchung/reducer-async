@@ -130,19 +130,19 @@ const MainStack: React.FC<Props> = ({currentTheme}) => {
           onStateChange={onStateChangeNavigationContainer}
         >
           <Stack.Navigator headerMode={headerMode} mode={mode}>
-            {stateAuth.user ? (
+            {/* {stateAuth.user ? (
               <>
                 {AllScreensAfterLogin.map(({name, component}, index) => (
                   <Stack.Screen key={index} name={name} component={component} />
                 ))}
               </>
             ) : (
-              <>
+              <> */}
                 {AllScreensBeforeLogin.map(({name, component}, index) => (
                   <Stack.Screen key={index} name={name} component={component} />
                 ))}
-              </>
-            )}
+              {/* </>
+            )} */}
           </Stack.Navigator>
         </NavigationContainer>
       </AppContextAuth.Provider>
